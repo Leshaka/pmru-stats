@@ -180,9 +180,8 @@ def export(guild: nextcord.Guild):
 class Bot(commands.Bot):
     async def on_ready(self):
         guild = self.get_guild(GUILD_ID)
-        #for chan in pmru.text_channels[:1]:
-        #    await process_channel_messages(chan)
-        await process_channel_messages(guild.get_channel(851081824880951306))
+        for chan in guild.text_channels[:1]:
+            await process_channel_messages(chan)
         export(guild)
         print("ALL DONE")
 
